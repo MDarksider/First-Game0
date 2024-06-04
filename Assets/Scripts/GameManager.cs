@@ -16,6 +16,19 @@ public class GameManager : MonoBehaviour
     public Text lifeText;
     public Text winnerText;
 
+    private void OnEnable()
+    {
+        startButton.onClick.AddListener(StartGame);
+        exitButton.onClick.AddListener(ExitGame);
+    }
+
+    private void OnDisable()
+    {
+        startButton.onClick.RemoveListener(StartGame);
+        exitButton.onClick.RemoveListener(ExitGame);
+    }
+
+
     private void Awake()
     {
         Instance = this;
@@ -68,18 +81,7 @@ public class GameManager : MonoBehaviour
     }
 
 
-    private void OnEnable()
-    {
-        startButton.onClick.AddListener(StartGame);
-        exitButton.onClick.AddListener(ExitGame);
-    }
-
-    private void OnDisable()
-    {
-        startButton.onClick.RemoveListener(StartGame);
-        exitButton.onClick.RemoveListener(ExitGame);
-    }
-
+ 
 
 
 }
